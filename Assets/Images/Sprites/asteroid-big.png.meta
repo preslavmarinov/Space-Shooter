@@ -116,10 +116,10 @@ TextureImporter:
       name: asteroid-big_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 136
-        width: 837
-        height: 587
+        x: 0
+        y: 79
+        width: 494
+        height: 347
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
