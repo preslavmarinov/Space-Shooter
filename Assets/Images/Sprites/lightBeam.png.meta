@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ce4a8db4369ec6a4cb8092b80699b346
+guid: 03f06205d961f744faf38952fe137a0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3591687972412297574
-    second: audioSprite_0
+      213: 3363004335290325264
+    second: lightBeam_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: audioSprite_0
+      name: lightBeam_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 342
-        height: 342
+        x: 66
+        y: 240
+        width: 365
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9e625491d2c72ec0800000000000000
-      internalID: -3591687972412297574
+      spriteID: 019141fff9acbae20800000000000000
+      internalID: 3363004335290325264
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      audioSprite_0: -3591687972412297574
+      lightBeam_0: 3363004335290325264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

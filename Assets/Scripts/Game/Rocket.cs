@@ -4,8 +4,10 @@ public class Rocket : MonoBehaviour
 {
     private Vector2 screenBounds;
     private Vector2 rocketSize;
+    private float beamSpawnOffset = 0.3f;
 
-    public float leadDistance = 0.5f;
+    public GameObject lightBeam;
+    public Transform firePoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,5 +45,22 @@ public class Rocket : MonoBehaviour
 
 
         transform.position = Vector2.Lerp(transform.position, new Vector2(clampedX, clampedY), 0.1f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            this.ShootLightBeam(angle);
+        }
+    }
+
+    private void ShootLightBeam(float angle)
+    {
+        Vector3 spawnPosition = this.firePoint.position + (this.firePoint.up * this.beamSpawnOffset);
+        GameObject lightBeam = Instantiate(this.lightBeam, spawnPosition, Quaternion.Euler(0, 0, angle - 90));
+
+        LightBeam lightBeamScript = lightBeam.GetComponent<LightBeam>();
+        if (lightBeamScript != null)
+        {
+            lightBeamScript.SetDirection(firePoint.up);
+        }
     }
 }
