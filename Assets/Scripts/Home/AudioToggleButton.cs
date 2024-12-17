@@ -12,10 +12,10 @@ public class AudioToggleButton : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioManager = FindFirstObjectByType<AudioManager>();
+        this.audioManager = FindFirstObjectByType<AudioManager>();
 
-        UpdateButtonIcon(true);
-        audioButton.onClick.AddListener(ToggleAudio);
+        this.UpdateButtonIcon();
+        this.audioButton.onClick.AddListener(ToggleAudio);
     }
 
     // Update is called once per frame
@@ -26,19 +26,19 @@ public class AudioToggleButton : MonoBehaviour
 
     private void ToggleAudio()
     {
-        audioManager.ToggleMute();
-        UpdateButtonIcon(false);
+        this.audioManager.ToggleMute();
+        this.UpdateButtonIcon();
     }
 
-    private void UpdateButtonIcon(bool initialUpdate)
+    private void UpdateButtonIcon()
     {
-        if (!audioManager.isPlaying() && !initialUpdate)
+        if (!this.audioManager.isPlaying())
         {
-            audioButton.GetComponentInChildren<Image>().sprite = audioOffSprite;
+            this.audioButton.GetComponentInChildren<Image>().sprite = this.audioOffSprite;
         }
         else
         {
-            audioButton.GetComponentInChildren<Image>().sprite = audioOnSprite;
+            this.audioButton.GetComponentInChildren<Image>().sprite = this.audioOnSprite;
         }
     }
 }

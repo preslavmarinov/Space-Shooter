@@ -17,11 +17,15 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        AudioManager.Instance.StartAudio();
     }
 
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
+
+        AudioManager.Instance.StopAudio();
     }
 
     public void LoadHomeScene()

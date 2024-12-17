@@ -10,6 +10,18 @@ public class AudioManager : MonoBehaviour
     private static AudioManager instance;
     private bool isMuted = false;
 
+    public static AudioManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindFirstObjectByType<AudioManager>();
+            }
+            return instance;
+        }
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -76,6 +88,22 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.Play();
         }
+    }
+
+    public void StartAudio()
+    {
+        if (this.isPlaying() || this.isMuted) return; 
+        
+        audioSource.Play();
+        
+    }
+
+    public void StopAudio()
+    {
+        if (!this.isPlaying()) return;
+
+        audioSource.Stop();
+        
     }
 
     public bool isPlaying()
