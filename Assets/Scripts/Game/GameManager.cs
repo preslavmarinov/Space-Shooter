@@ -1,16 +1,31 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int playerScore;
+    public Text scoreText;
+    public GameObject gameOverScreen;
+
+    public void AddScore(int scoreToAdd)
     {
-        
+        this.playerScore += scoreToAdd;
+        this.scoreText.text = this.playerScore.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RestartGame()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    public void LoadHomeScene()
+    {
+        SceneManager.LoadScene("HomeScene", LoadSceneMode.Single);
     }
 }

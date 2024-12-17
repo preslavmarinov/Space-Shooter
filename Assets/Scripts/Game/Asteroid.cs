@@ -8,6 +8,8 @@ public abstract class Asteroid : MonoBehaviour
     protected int size;
     protected Vector2 screenBounds;
 
+    public GameManager gameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +42,7 @@ public abstract class Asteroid : MonoBehaviour
         if (hp == 0)
         {
             Destroy(gameObject);
+            this.gameManager.AddScore(1);
         }
     }
 
@@ -47,8 +50,8 @@ public abstract class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("LightBeam"))
         {
-            this.TakeDamage();
             Destroy(collision.gameObject);
+            this.TakeDamage();
         }
         else if (collision.gameObject.CompareTag("Asteroid"))
         {

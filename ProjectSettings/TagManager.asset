@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LightBeam
   - Asteroid
+  - GameManager
   layers:
   - Default
   - TransparentFX

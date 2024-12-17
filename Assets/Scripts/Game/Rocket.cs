@@ -8,12 +8,12 @@ public class Rocket : MonoBehaviour
 
     public GameObject lightBeam;
     public Transform firePoint;
+    public GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Camera camera = Camera.main;
-        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null )
@@ -68,7 +68,7 @@ public class Rocket : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            // GameOver
+            this.gameManager.GameOver();
         } 
     }
 }

@@ -124,8 +124,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.99, y: -0.23}
-  m_Size: {x: 3.34, y: 0.0001}
+  m_Offset: {x: -1.04, y: -0.26}
+  m_Size: {x: 2.98, y: 0.0001}
   m_Direction: 0
 --- !u!114 &5494515699066084560
 MonoBehaviour:
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f31c97158cf8484cb8711dca2960643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!50 &3295326721354692885
 Rigidbody2D:
   serializedVersion: 5
