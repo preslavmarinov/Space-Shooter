@@ -1080,6 +1080,7 @@ GameObject:
   - component: {fileID: 1277746229}
   - component: {fileID: 1277746228}
   - component: {fileID: 1277746227}
+  - component: {fileID: 1277746230}
   m_Layer: 5
   m_Name: SoundButton
   m_TagString: Untagged
@@ -1188,6 +1189,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277746225}
   m_CullTransparentMesh: 1
+--- !u!114 &1277746230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277746225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679b9b0924476d44c96d0133111cf419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundButton: {fileID: 1277746227}
+  soundEffectOnSprite: {fileID: 2668865333901087123, guid: 7f354fb4f6f7f354b92120dff03c8822, type: 3}
+  soundEffectOffSprite: {fileID: 939208591791044381, guid: 2be9dae6d3918884d9e99a8030747c23, type: 3}
 --- !u!1 &1370005857
 GameObject:
   m_ObjectHideFlags: 0

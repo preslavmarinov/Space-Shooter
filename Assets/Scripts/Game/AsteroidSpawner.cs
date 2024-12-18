@@ -3,9 +3,13 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     private float timer;
+    private float gameTime;
+    private float minSpawnRate = 0.4f;
 
     public GameObject[] asteroidPrefabs;
     public float spawnRate = 2f;
+    public float spawnRateDecreaseInterval = 10f;
+    public float spawnRateDecreaseAmount = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +25,13 @@ public class AsteroidSpawner : MonoBehaviour
         {
             this.SpawnAsteroid();
             timer = 0f;
+        }
+
+        gameTime += Time.deltaTime;
+        if (gameTime > spawnRateDecreaseInterval)
+        {
+            this.DecreaseSpawnRate();
+            gameTime = 0f;
         }
     }
 
@@ -65,5 +76,10 @@ public class AsteroidSpawner : MonoBehaviour
         }
 
         return new Vector2(x, y);
+    }
+
+    private void DecreaseSpawnRate()
+    {
+        this.spawnRate = Mathf.Max(this.minSpawnRate, this.spawnRate - this.spawnRateDecreaseAmount);
     }
 }
