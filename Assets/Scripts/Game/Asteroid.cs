@@ -43,6 +43,7 @@ public abstract class Asteroid : MonoBehaviour
         {
             Destroy(gameObject);
             this.gameManager.AddScore(1);
+            SoundEffectManager.Instance.PlayAsteroidDestroySound();
         }
     }
 
@@ -55,7 +56,7 @@ public abstract class Asteroid : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Asteroid"))
         {
-            Debug.Log("AST COLLISON");
+            SoundEffectManager.Instance.PlayAsteroidDestroySound();
 
             Asteroid collidedAsteroid = collision.GetComponent<Asteroid>();
             if (collidedAsteroid != null)

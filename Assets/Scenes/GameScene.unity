@@ -1347,6 +1347,7 @@ MonoBehaviour:
   lightBeam: {fileID: 667782464927430813, guid: 9e68d9eeae90e774793c5e55e7aebb5c, type: 3}
   firePoint: {fileID: 2131363629}
   gameManager: {fileID: 1777497677}
+  soundEffectManager: {fileID: 0}
 --- !u!61 &1947101480
 BoxCollider2D:
   m_ObjectHideFlags: 0

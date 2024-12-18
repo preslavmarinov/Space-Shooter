@@ -48,6 +48,7 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            SoundEffectManager.Instance.PlayLaserSound();
             this.ShootLightBeam(angle);
         }
     }
@@ -68,7 +69,9 @@ public class Rocket : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            SoundEffectManager.Instance.PlayRocketDestroySound();
             this.gameManager.GameOver();
+            Destroy(gameObject);
         } 
     }
 }

@@ -13,7 +13,6 @@ public class AudioToggleButton : MonoBehaviour
     void Start()
     {
         this.audioManager = FindFirstObjectByType<AudioManager>();
-
         this.UpdateButtonIcon();
         this.audioButton.onClick.AddListener(ToggleAudio);
     }

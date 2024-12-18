@@ -7,6 +7,7 @@ TagManager:
   - LightBeam
   - Asteroid
   - GameManager
+  - SoundEffect
   layers:
   - Default
   - TransparentFX
