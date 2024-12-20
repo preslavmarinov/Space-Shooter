@@ -10,18 +10,11 @@ public class SoundEffectsToggleButton : MonoBehaviour
 
     private SoundEffectManager soundEffectManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         this.soundEffectManager = FindFirstObjectByType<SoundEffectManager>();
         this.UpdateButtonIcon();
         this.soundButton.onClick.AddListener(ToggleSoundEffects);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void ToggleSoundEffects()

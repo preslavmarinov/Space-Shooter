@@ -7,11 +7,11 @@ public class HelpModalManager : MonoBehaviour
 
     public void OpenModal()
     {
-        helpModal.SetActive(true);
+        this.helpModal.SetActive(true);
     }
 
     public void CloseModal()
     {
-        helpModal.SetActive(false);
+        this.helpModal.SetActive(false);
     }
 }

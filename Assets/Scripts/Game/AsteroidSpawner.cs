@@ -11,27 +11,20 @@ public class AsteroidSpawner : MonoBehaviour
     public float spawnRateDecreaseInterval = 10f;
     public float spawnRateDecreaseAmount = 0.1f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > spawnRate) 
+        this.timer += Time.deltaTime;
+        if (this.timer > this.spawnRate) 
         {
             this.SpawnAsteroid();
-            timer = 0f;
+            this.timer = 0f;
         }
 
-        gameTime += Time.deltaTime;
-        if (gameTime > spawnRateDecreaseInterval)
+        this.gameTime += Time.deltaTime;
+        if (this.gameTime > this.spawnRateDecreaseInterval)
         {
             this.DecreaseSpawnRate();
-            gameTime = 0f;
+            this.gameTime = 0f;
         }
     }
 

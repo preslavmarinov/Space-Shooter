@@ -35,44 +35,37 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        PlayAudioScene(sceneName);
+        this.PlayAudioScene(sceneName);
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
     {
-        PlayAudioScene(scene.name);
+        this.PlayAudioScene(scene.name);
     }
 
     public void PlayAudioScene(string sceneName)
     {
-        if (isMuted) return;
+        if (this.isMuted) return;
 
         AudioClip currentClip = null;
 
         if (sceneName == "HomeScene")
         {
-            currentClip = homeClip;
+            currentClip = this.homeClip;
         }
         else if (sceneName == "GameScene")
         {
-            currentClip = gameClip;
+            currentClip = this.gameClip;
         }
 
-        if (audioSource.clip != currentClip)
+        if (this.audioSource.clip != currentClip)
         {
-            audioSource.clip = currentClip;
-            audioSource.Play();
+            this.audioSource.clip = currentClip;
+            this.audioSource.Play();
         }
     }
 
@@ -82,11 +75,11 @@ public class AudioManager : MonoBehaviour
 
         if (this.isMuted)
         {
-            audioSource.Stop();
+            this.audioSource.Stop();
         }
         else
         {
-            audioSource.Play();
+            this.audioSource.Play();
         }
     }
 
@@ -94,7 +87,7 @@ public class AudioManager : MonoBehaviour
     {
         if (this.isPlaying() || this.isMuted) return; 
         
-        audioSource.Play();
+        this.audioSource.Play();
         
     }
 
@@ -102,13 +95,13 @@ public class AudioManager : MonoBehaviour
     {
         if (!this.isPlaying()) return;
 
-        audioSource.Stop();
+        this.audioSource.Stop();
         
     }
 
     public bool isPlaying()
     {
-        return audioSource.isPlaying;
+        return this.audioSource.isPlaying;
     }
 
 

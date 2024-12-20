@@ -9,18 +9,11 @@ public class AudioToggleButton : MonoBehaviour
 
     private AudioManager audioManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         this.audioManager = FindFirstObjectByType<AudioManager>();
         this.UpdateButtonIcon();
         this.audioButton.onClick.AddListener(ToggleAudio);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void ToggleAudio()

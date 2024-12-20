@@ -10,16 +10,9 @@ public abstract class Asteroid : MonoBehaviour
 
     public GameManager gameManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        transform.position += direction * speed * Time.deltaTime;
+        transform.position += this.direction * this.speed * Time.deltaTime;
 
         if (this.IsOutOfBounds())
         {
@@ -31,15 +24,15 @@ public abstract class Asteroid : MonoBehaviour
 
     private bool IsOutOfBounds()
     {
-        return transform.position.x > screenBounds.x + 1f || transform.position.x < -screenBounds.x - 1f ||
-               transform.position.y > screenBounds.y + 1f || transform.position.y < -screenBounds.y - 1f;
+        return transform.position.x > this.screenBounds.x + 1f || transform.position.x < -this.screenBounds.x - 1f ||
+               transform.position.y > this.screenBounds.y + 1f || transform.position.y < -this.screenBounds.y - 1f;
     }
 
     public void TakeDamage()
     {
-        hp--;
+        this.hp--;
 
-        if (hp == 0)
+        if (this.hp == 0)
         {
             Destroy(gameObject);
             this.gameManager.AddScore(1);
@@ -74,7 +67,7 @@ public abstract class Asteroid : MonoBehaviour
                     }
                     else
                     {
-                        Destroy(this.gameObject);
+                        Destroy(gameObject);
                     }
                 }
             }

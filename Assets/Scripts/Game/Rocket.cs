@@ -10,23 +10,21 @@ public class Rocket : MonoBehaviour
     public Transform firePoint;
     public GameManager gameManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        this.screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null )
         {
-            rocketSize = spriteRenderer.bounds.extents;
+            this.rocketSize = spriteRenderer.bounds.extents;
         }
         else
         {
-            rocketSize = Vector2.zero;
+            this.rocketSize = Vector2.zero;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -34,8 +32,8 @@ public class Rocket : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         mousePosition.z = 0;
 
-        float clampedX = Mathf.Clamp(mousePosition.x, -screenBounds.x + rocketSize.x, screenBounds.x - rocketSize.x);
-        float clampedY = Mathf.Clamp(mousePosition.y, -screenBounds.y + rocketSize.y, screenBounds.y - rocketSize.y);
+        float clampedX = Mathf.Clamp(mousePosition.x, -this.screenBounds.x + rocketSize.x, this.screenBounds.x - rocketSize.x);
+        float clampedY = Mathf.Clamp(mousePosition.y, -this.screenBounds.y + rocketSize.y, this.screenBounds.y - rocketSize.y);
 
 
         Vector2 direction = mousePosition - transform.position;
@@ -72,6 +70,12 @@ public class Rocket : MonoBehaviour
             SoundEffectManager.Instance.PlayRocketDestroySound();
             this.gameManager.GameOver();
             Destroy(gameObject);
+
+            if (this.gameManager.playerScore > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", this.gameManager.playerScore);
+                PlayerPrefs.Save();
+            }
         } 
     }
 }
